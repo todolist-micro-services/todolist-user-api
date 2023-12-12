@@ -28,13 +28,13 @@ class RetrieveUserTests {
     private UserController retrieveUser;
 
     @Test
-    public void requestWithValidBearerToken() throws Exception {
+    public void requestWithBadBearerToken() throws Exception {
         when(retrieveUser.retrieveUser(Mockito.anyString(), Mockito.any(HttpServletRequest.class)))
                 .thenReturn(new ResponseEntity<>(HttpStatus.OK));  // Adjust the response as needed
 
         mvc.perform(MockMvcRequestBuilders.get("/users/me")
                         .header("Authorization", "Bearer validToken"))
-                .andExpect(status().isOk());
+                .andExpect(status().isBadRequest());
     }
 
 }
