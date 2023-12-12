@@ -22,7 +22,7 @@ public class UpdateUserController {
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Object> retrieveUser(
+    public ResponseEntity<Object> updateUser(
             @RequestHeader(value = "Authorization", required = false) String authorizationHeader,
             HttpServletRequest request,
             @RequestBody UpdateUserRequest updateUserRequest
