@@ -47,7 +47,7 @@ public class TokenInterceptor implements HandlerInterceptor {
             return this.formatErrorResponse(response, "You need a token");
         Token dbToken = this.dataInterface.getUserTokenFromToken(token);
         if (dbToken == null)
-            return this.formatErrorResponse(response, "Token expired");
+            return this.formatErrorResponse(response, "Token not found");
         if (dbToken.expirationDate.isBefore(LocalDateTime.now())) {
             this.dataInterface.deleteUserToken(dbToken.user);
             return this.formatErrorResponse(response, "Token expired");
