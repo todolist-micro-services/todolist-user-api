@@ -1,12 +1,9 @@
 ci:
   variables:
-    SERVER_PORT: 8081
+    USER_API_PORT: 8081
     DB_URL: jdbc:mysql://localhost:3306/todolistMicroServices
     DB_USERNAME: root
     DB_PASSWORD: 123456789
-    SECRET_TOKEN: 123456789
-    EMAIL_SENDER: email@email.com
-    EMAIL_PASSWORD: 123456789
   trigger:
     include:
       - project: 'todolist-micro-services/pipeline'
