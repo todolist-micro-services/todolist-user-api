@@ -25,7 +25,7 @@ class RetrieveUserTests {
     private MockMvc mvc;
 
     @MockBean
-    private UserController retrieveUser;
+    private RetrieveUserController retrieveUser;
 
     @Test
     public void requestWithBadBearerToken() throws Exception {
