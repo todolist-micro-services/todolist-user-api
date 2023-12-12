@@ -12,20 +12,18 @@ import todolist.database.dataType.User;
 
 @RestController
 @RequestMapping("/users")
-public class RetrieveUser {
+public class UserController {
 
     private final AppConfig appConfig;
     private final DataInterface dataInterface;
 
-    public RetrieveUser(AppConfig appConfig) {
+    public UserController(AppConfig appConfig) {
         this.appConfig = appConfig;
         this.dataInterface = InitDataInterface.initDataInterface(appConfig.getDbUrl(), appConfig.getDbUserName(), appConfig.getDbPassword());
     }
 
     @GetMapping("/me")
     public ResponseEntity<Object> retrieveUser(@RequestHeader(value = "Authorization", required = false) String authorizationHeader, HttpServletRequest request) {
-        if (authorizationHeader == null)
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"error\": \"Bad authorization header\"}");
         UserDto user = new UserDto();
         final String[] authorization = authorizationHeader.split(" ");
 
