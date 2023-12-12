@@ -23,6 +23,7 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
 	implementation(files("libs/dataInterface.jar"))
 	implementation('mysql:mysql-connector-java:8.0.28')
+	implementation('ch.qos.logback:logback-classic')
 }
 
 tasks.named('test') {
