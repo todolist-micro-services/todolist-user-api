@@ -12,13 +12,11 @@ import todolist.database.dataType.User;
 
 @RestController
 @RequestMapping("/users")
-public class UserController {
+public class RetrieveUserController {
 
-    private final AppConfig appConfig;
     private final DataInterface dataInterface;
 
-    public UserController(AppConfig appConfig) {
-        this.appConfig = appConfig;
+    public RetrieveUserController(AppConfig appConfig) {
         this.dataInterface = InitDataInterface.initDataInterface(appConfig.getDbUrl(), appConfig.getDbUserName(), appConfig.getDbPassword());
     }
 
